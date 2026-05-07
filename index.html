@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Productivity Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="dashboard-header">
+    <h1 class="dashboard-title">Productivity Dashboard</h1>
+    <button id="theme-toggle" type="button" aria-label="Toggle light/dark theme">
+      Toggle Theme
+    </button>
+  </header>
+
+  <main class="dashboard-main">
+
+    <!-- Greeting Widget -->
+    <section id="greeting-widget" class="widget" aria-labelledby="greeting-heading">
+      <h2 id="greeting-heading" class="sr-only">Greeting</h2>
+      <p id="greeting-time" class="greeting-time" aria-live="polite"></p>
+      <p id="greeting-date" class="greeting-date"></p>
+      <p id="greeting-text" class="greeting-text" aria-live="polite"></p>
+      <form id="name-form" class="name-form" aria-label="Set your name">
+        <label for="name-input">Your name</label>
+        <input
+          type="text"
+          id="name-input"
+          name="name"
+          placeholder="Enter your name"
+          autocomplete="given-name"
+          maxlength="100"
+        />
+        <button type="submit">Save Name</button>
+      </form>
+    </section>
+
+    <!-- Focus Timer Widget -->
+    <section id="focus-timer" class="widget" aria-labelledby="timer-heading">
+      <h2 id="timer-heading">Focus Timer</h2>
+      <p id="timer-display" class="timer-display" aria-live="polite" aria-atomic="true">25:00</p>
+      <div class="timer-controls" role="group" aria-label="Timer controls">
+        <button id="timer-start" type="button">Start</button>
+        <button id="timer-stop" type="button" disabled>Stop</button>
+        <button id="timer-reset" type="button">Reset</button>
+      </div>
+      <form id="duration-form" class="duration-form" aria-label="Set timer duration">
+        <label for="duration-input">Duration (minutes)</label>
+        <input
+          type="number"
+          id="duration-input"
+          name="duration"
+          min="1"
+          max="120"
+          placeholder="25"
+        />
+        <button type="submit">Set Duration</button>
+        <p id="duration-error" class="validation-error" role="alert" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <!-- To-Do List Widget -->
+    <section id="todo-widget" class="widget" aria-labelledby="todo-heading">
+      <h2 id="todo-heading">To-Do List</h2>
+      <form id="add-task-form" class="add-task-form" aria-label="Add a new task">
+        <label for="task-input">New task</label>
+        <input
+          type="text"
+          id="task-input"
+          name="task"
+          placeholder="Enter a task"
+          maxlength="500"
+        />
+        <button type="submit">Add Task</button>
+        <p id="task-error" class="validation-error" role="alert" aria-live="polite"></p>
+      </form>
+      <ul id="task-list" class="task-list" aria-label="Task list" aria-live="polite">
+        <!-- Tasks rendered here by JS -->
+      </ul>
+    </section>
+
+    <!-- Quick Links Widget -->
+    <section id="quick-links" class="widget" aria-labelledby="links-heading">
+      <h2 id="links-heading">Quick Links</h2>
+      <form id="add-link-form" class="add-link-form" aria-label="Add a new quick link">
+        <label for="link-label-input">Label</label>
+        <input
+          type="text"
+          id="link-label-input"
+          name="label"
+          placeholder="e.g. GitHub"
+          maxlength="100"
+        />
+        <label for="link-url-input">URL</label>
+        <input
+          type="url"
+          id="link-url-input"
+          name="url"
+          placeholder="https://example.com"
+          maxlength="2048"
+        />
+        <button type="submit">Add Link</button>
+        <p id="link-error" class="validation-error" role="alert" aria-live="polite"></p>
+      </form>
+      <div id="links-list" class="links-list" aria-label="Quick links" aria-live="polite">
+        <!-- Links rendered here by JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>
